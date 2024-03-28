@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Persona</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Editar Persona</h1>
+  <form action="/personas/${id}" method="put">
+    <input type="hidden" name="id" value="${id}">
+    <label for="nombres">Nombres:</label>
+    <input type="text" id="nombres" name="nombres" value="${persona.nombres}" required>
+    <br>
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" id="apellidos" name="apellidos" value="${persona.apellidos}" required>
+    <br>
+    <label for="pais">País:</label>
+    <input type="text" id="pais" name="pais" value="${persona.pais}" required>
+    <br>
+    <br>
+    <button type="submit">Editar</button>
+  </form>
+</body>
+</html>
