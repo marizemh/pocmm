@@ -2,9 +2,6 @@ package com.venturicg.poc.service.model;
 
 import javax.persistence.*;
 
-
-import org.springframework.data.annotation.Id;
-
 @Entity
 @Table(name = "persona")
 public class Persona {
