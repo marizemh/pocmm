@@ -9,19 +9,18 @@ import java.util.List;
 @Mapper
 public interface PersonaDAO {
 
-    @Select("select * from persona")
-    List<Persona> obtenerPersonas();
+  @Select("SELECT * FROM persona")
+  List<Persona> obtenerPersonas();
 
-    List<Persona> findAll();
+  List<Persona> findAll();
 
-    Persona findById(String id);
+  Persona findById(String id);
 
-    Persona save(Persona persona);
-    
-    void update(Persona persona);
+  Persona save(Persona persona);
 
-    boolean existsById(String id);
+  void update(Persona persona);
 
-    void deleteById(String id);
+  boolean existsById(String id);
+
+  void deleteById(String id);
 }
-

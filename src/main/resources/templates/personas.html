@@ -1,64 +1,97 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>POC SGO</title>
+  <title>POC SGO</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <script type="text/javascript" th:src="@{/jquery-3.6.3.min.js}"></script>
-    <script type="text/javascript" th:src="@{/personas/app.bundle.js}" defer></script>
+  <script type="text/javascript" th:src="@{/jquery-3.6.3.min.js}"></script>
+  <script type="text/javascript" th:src="@{/personas/app.bundle.js}" defer></script>
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
 
-        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessage" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalMessageTitle">Atenci&oacute;n</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id="modalMessageContent">
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
-                    </div>
-                </div>
-            </div>
+    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessage" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalMessageTitle">Atención</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modalMessageContent">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+          </div>
         </div>
-
-        <div class="card">
-            <h5 class="card-header">Personas</h5>
-            <div class="card-body">
-                <table id="personas" class="display">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Pais</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        </tbody>
-                </table>
-            </div>
-        </div>
-
-        <button class="btn btn-primary" id="createPersonaButton">Nueva Persona</button>
-        <button class="btn btn-danger" id="deletePersonaButton">Eliminar Persona</button>
+      </div>
     </div>
 
-    <script>
-        const config = { context: "" };
-    </script>
+    <div class="modal fade" id="personaModal" tabindex="-1" role="dialog" aria-labelledby="personaModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="personaModalLabel">Crear Persona</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="personaForm">
+              <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" class="form-control" id="nombres" name="nombres">
+              </div>
+              <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos">
+              </div>
+              <div class="form-group">
+                <label for="pais">Pais:</label>
+                <select class="form-control" id="pais" name="pais">
+                  </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="savePersonaButton">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h5 class="card-header">Personas</h5>
+      <div class="card-body">
+        <table id="personas" class="display">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Pais</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="createPersonaButton">Nueva Persona</button>
+    <button class="btn btn-danger" id="deletePersonaButton">Eliminar Persona</button>
+  </div>
+
+  <script>
+  </script>
 
 </body>
 </html>

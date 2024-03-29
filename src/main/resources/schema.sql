@@ -1,13 +1,12 @@
-create table pais(
-    id varchar(2),
-    nombre varchar(50),
-    primary key (id)
+CREATE TABLE IF NOT EXISTS pais (
+  id VARCHAR(2) PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL
 );
 
-create table persona (
-  id varchar(2),
-  nombres varchar(255),
-  apellidos varchar(255),
-  pais varchar(255),
-  primary key (id)
+CREATE TABLE IF NOT EXISTS persona (
+  id VARCHAR(2) PRIMARY KEY,
+  nombres VARCHAR(255) NOT NULL,
+  apellidos VARCHAR(255) NOT NULL,
+  pais VARCHAR(255) NOT NULL,
+  FOREIGN KEY (pais) REFERENCES pais(id)
 );
