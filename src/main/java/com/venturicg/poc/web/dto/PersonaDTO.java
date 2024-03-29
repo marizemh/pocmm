@@ -1,28 +1,19 @@
-package com.venturicg.poc.service.model;
+package com.venturicg.poc.web.dto;
 
-public class Persona {
+import java.io.Serializable;
 
+public class PersonaDTO implements Serializable {
     private String id;
     private String nombres;
     private String apellidos;
     private String pais;
 
-    public Persona() {
-    }
-
-    public Persona(String id, String nombres, String apellidos, String pais) {
+    public PersonaDTO(String id, String nombre, String apellido, String pais) {
         this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        this.nombres = nombre;
+        this.apellidos = apellido;
         this.pais = pais;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNombres() {
@@ -47,6 +38,14 @@ public class Persona {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

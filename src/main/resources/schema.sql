@@ -4,11 +4,11 @@ create table pais(
     primary key (id)
 );
 
-CREATE TABLE persona (
-  id INT NOT NULL AUTO_INCREMENT,
-  nombres VARCHAR(255) NOT NULL,
-  apellidos VARCHAR(255) NOT NULL,
-  pais VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id)
+create table persona (
+  id varchar(2),
+  nombres varchar(255),
+  apellidos varchar(255),
+  pais varchar(255),
+  primary key (id)
 );
 
