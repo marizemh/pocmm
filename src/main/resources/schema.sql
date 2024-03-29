@@ -11,4 +11,3 @@ create table persona (
   pais varchar(255),
   primary key (id)
 );
-

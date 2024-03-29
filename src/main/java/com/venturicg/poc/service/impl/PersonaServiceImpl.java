@@ -27,7 +27,7 @@ public class PersonaServiceImpl implements PersonasService {
 
     @Override
     public Persona findById(String id) {
-        return (Persona) personaDAO.findById(id);
+        return personaDAO.findById(id);
     }
 
     @Override

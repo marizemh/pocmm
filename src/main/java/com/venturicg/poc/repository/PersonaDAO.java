@@ -17,8 +17,11 @@ public interface PersonaDAO {
     Persona findById(String id);
 
     Persona save(Persona persona);
+    
+    void update(Persona persona);
 
     boolean existsById(String id);
 
     void deleteById(String id);
 }
+
