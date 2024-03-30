@@ -1,3 +1,4 @@
+/*
 package com.venturicg.poc.web.restcontroller;
 
 import com.venturicg.poc.service.PersonasService;
@@ -54,3 +55,4 @@ public class PersonaRestController {
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }
+*/

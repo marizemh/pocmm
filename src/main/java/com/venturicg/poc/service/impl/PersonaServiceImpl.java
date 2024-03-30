@@ -1,3 +1,4 @@
+/*
 package com.venturicg.poc.service.impl;
 
 import com.venturicg.poc.repository.PersonaDAO;
@@ -50,3 +51,4 @@ public class PersonaServiceImpl implements PersonasService {
     }
 }
 
+*/

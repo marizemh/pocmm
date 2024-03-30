@@ -2,7 +2,7 @@ package com.venturicg.poc.service.model;
 
 public class Persona {
 
-    private String id;
+    private int id;
     private String nombres;
     private String apellidos;
     private String pais;
@@ -10,18 +10,18 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String id, String nombres, String apellidos, String pais) {
+    public Persona(int id, String nombres, String apellidos, String pais) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.pais = pais;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
