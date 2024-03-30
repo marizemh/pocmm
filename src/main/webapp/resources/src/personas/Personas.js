@@ -3,7 +3,7 @@ $(document).ready(function () {
     var table = $('#personas').DataTable({
         // Configuración de Datatables
         ajax: {
-            url: '/api/personas', // Endpoint para obtener el listado de personas
+            url: '/personas', // Endpoint para obtener el listado de personas
             dataSrc: ''
         },
         columns: [
