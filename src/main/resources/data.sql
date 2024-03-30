@@ -193,8 +193,8 @@ INSERT INTO pais (id, nombre) VALUES('VN', 'Vietnam');
 INSERT INTO pais (id, nombre) VALUES('YE', 'Yemen');
 INSERT INTO pais (id, nombre) VALUES('ZM', 'Zambia');
 INSERT INTO pais (id, nombre) VALUES('ZW', 'Zimbabwe');
-INSERT INTO persona (id, nombres, apellidos, pais) VALUES('VE', 'Maria', 'Perez', 'VE');
-INSERT INTO persona (id, nombres, apellidos, pais) VALUES('FR', 'Peter', 'Lauraux', 'FR');
-INSERT INTO persona (id, nombres, apellidos, pais) VALUES('SE', 'Josue', 'Baez', 'SE');
+INSERT INTO persona (id, nombres, apellidos, pais) VALUES(1, 'Maria', 'Perez', 'VE');
+INSERT INTO persona (id, nombres, apellidos, pais) VALUES(2, 'Peter', 'Lauraux', 'FR');
+INSERT INTO persona (id, nombres, apellidos, pais) VALUES(3, 'Josue', 'Baez', 'SE');
 
 
