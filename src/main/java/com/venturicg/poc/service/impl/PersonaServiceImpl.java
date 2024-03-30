@@ -14,6 +14,12 @@ public class PersonaServiceImpl implements PersonasService {
     @Autowired
     private PersonaDAO personaDAO;
 
+
+    @Override
+    public List<Persona> obtenerPersonas() {
+        return personaDAO.obtenerPersonas();
+    }
+
     @Override
     public List<Persona> findAll() {
         return personaDAO.findAll();

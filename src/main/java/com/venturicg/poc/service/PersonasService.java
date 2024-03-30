@@ -14,4 +14,6 @@ public interface PersonasService {
     Persona update(int id, Persona persona);
 
     void deleteById(int id);
+
+    List<Persona> obtenerPersonas();
 }

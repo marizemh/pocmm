@@ -13,6 +13,11 @@ import java.util.List;
 
 @Mapper
 public interface PersonaDAO {
+
+    @Select("select * from persona")
+    List<Persona> obtenerPersonas();
+
+
     @Select("SELECT * FROM persona")
     List<Persona> findAll();
 

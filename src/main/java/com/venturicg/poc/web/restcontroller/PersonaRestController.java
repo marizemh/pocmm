@@ -1,9 +1,8 @@
-/*
 package com.venturicg.poc.web.restcontroller;
 
-import com.venturicg.poc.service.PersonasService;
-import com.venturicg.poc.service.model.Persona;
-import com.venturicg.poc.web.dto.PersonaDTO;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import com.venturicg.poc.service.PersonasService;
+import com.venturicg.poc.service.model.Persona;
+import com.venturicg.poc.web.dto.PersonaDTO;
 
 @RestController
 @RequestMapping("/rest/personas")
@@ -41,8 +41,8 @@ public class PersonaRestController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Persona> editarPersona(@PathVariable String id, @RequestBody Persona persona) {
-    if (!id.equals(persona.getId())) {
+  public ResponseEntity<Persona> editarPersona(@PathVariable int id, @RequestBody Persona persona) {
+    if (id != persona.getId()) {
       throw new IllegalArgumentException("ID de persona en la URL y en el body no coinciden");
     }
     Persona personaActualizada = personasService.update(id, persona);
@@ -50,9 +50,8 @@ public class PersonaRestController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<?> eliminarPersona(@PathVariable String id) {
+  public ResponseEntity<?> eliminarPersona(@PathVariable int id) {
     personasService.deleteById(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }
-*/

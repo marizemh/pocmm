@@ -21,4 +21,5 @@ public class Pais implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 }
