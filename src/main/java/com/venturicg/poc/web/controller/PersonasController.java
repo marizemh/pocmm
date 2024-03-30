@@ -1,25 +1,19 @@
 package com.venturicg.poc.web.controller;
 
-import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.venturicg.poc.service.PersonasService;
 import com.venturicg.poc.service.model.Persona;
 
+//import antlr.collections.List;
+
 @RestController
 @RequestMapping("/api/personas")
 public class PersonasController {
+
     private final PersonasService personasService;
 
     @Autowired
@@ -27,11 +21,12 @@ public class PersonasController {
         this.personasService = personasService;
     }
 
+    /* 
     @GetMapping
     public List<Persona> getAllPersonas() {
         return personasService.findAll();
     }
-
+*/
     @GetMapping("/{id}")
     public Persona getPersonaById(@PathVariable int id) {
         return personasService.findById(id);

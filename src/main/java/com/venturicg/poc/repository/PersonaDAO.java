@@ -17,7 +17,7 @@ public interface PersonaDAO {
     List<Persona> findAll();
 
     @Select("SELECT * FROM persona WHERE id = #{id}")
-    Persona findById(Long id);
+    Persona findById(int id);
 
     @Insert("INSERT INTO persona(nombres, apellidos, pais) VALUES(#{nombres}, #{apellidos}, #{pais})")
     @Options(useGeneratedKeys = true, keyProperty = "id")

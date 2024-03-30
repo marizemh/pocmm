@@ -5,7 +5,6 @@ import com.venturicg.poc.service.model.Persona;
 import java.util.List;
 
 public interface PersonasService {
-
     List<Persona> findAll();
 
     Persona findById(int id);
@@ -15,7 +14,4 @@ public interface PersonasService {
     Persona update(int id, Persona persona);
 
     void deleteById(int id);
-
-    List<Persona> obtenerPersonas();
-
 }
