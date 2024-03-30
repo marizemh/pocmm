@@ -3,12 +3,12 @@ package com.venturicg.poc.web.dto;
 import java.io.Serializable;
 
 public class PersonaDTO implements Serializable {
-    private String id;
+    private int id;
     private String nombres;
     private String apellidos;
     private String pais;
 
-    public PersonaDTO(String id, String nombre, String apellido, String pais) {
+    public PersonaDTO(int id, String nombre, String apellido, String pais) {
         this.id = id;
         this.nombres = nombre;
         this.apellidos = apellido;
@@ -40,11 +40,11 @@ public class PersonaDTO implements Serializable {
         this.pais = pais;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

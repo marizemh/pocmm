@@ -1,3 +1,5 @@
+// Api.js
+
 import BaseApi from "../commons/BaseApi";
 
 export default class Api extends BaseApi {
@@ -10,7 +12,7 @@ export default class Api extends BaseApi {
         return this.baseEndpoint;
     }
 
-    obtenerPaises() {
+    obtenerPersonas() {
         const url = this.#getBaseEndPoint();
         return Api.get(url);
     }

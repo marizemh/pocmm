@@ -1,75 +1,37 @@
-$(document).ready(function () {
-    // Inicializar Datatables
-    var table = $('#personas').DataTable({
-        // Configuración de Datatables
-        ajax: {
-            url: '/personas', // Endpoint para obtener el listado de personas
-            dataSrc: ''
-        },
-        columns: [
-            { data: 'id' },
-            { data: 'nombres' },
-            { data: 'apellidos' },
-            { data: 'pais' },
-            {
-                data: null,
-                render: function (data, type, row) {
-                    return '<button class="editButton" data-id="' + data.id + '">Editar</button>' +
-                        '<button class="deleteButton" data-id="' + data.id + '">Eliminar</button>';
-                }
-            }
-        ]
-    });
+// Personas.js
 
-    // Manejar evento de envío del formulario de creación y edición de persona
-    $('#personaForm').submit(function (event) {
-        event.preventDefault();
-        var id = $('#personaId').val(); // Obtener el ID de la persona si se está editando
-        var nombres = $('#nombres').val();
-        var apellidos = $('#apellidos').val();
-        var pais = $('#pais').val();
-        var method = id ? 'PUT' : 'POST';
-        var url = id ? '/api/personas/' + id : '/api/personas';
+import DataTable from 'datatables.net';
+import 'datatables.net-dt/css/jquery.dataTables.min.css';
+import $ from "jquery";
 
-        $.ajax({
-            url: url,
-            type: method,
-            contentType: 'application/json',
-            data: JSON.stringify({ nombres: nombres, apellidos: apellidos, pais: pais }),
-            success: function (response) {
-                // Recargar el listado de personas después de la creación/edición
-                table.ajax.reload();
-                // Limpiar el formulario y cerrar el modal
-                $('#personaForm')[0].reset();
-                $('#personaModal').modal('hide');
+export default class Personas {
+    constructor(config) {
+        this.api = config.api;
+        this.idTablaPersonas = config.idTablaPersonas;
+    }
+
+    render(personas) {
+        this.tablaPersonas = new DataTable(`#${this.idTablaPersonas}`, {
+            data: personas,
+            autoWidth: true,
+            responsive: true,
+            language: {
+                url: `${this.api.getContext()}/DataTables/i18n/es-CL.json`,
             },
-            error: function (xhr, status, error) {
-                // Manejar errores
-                var errorMessage = xhr.responseJSON.message; // Suponiendo que la API REST devuelve un mensaje de error en formato JSON
-                $('#modalMessageContent').text(errorMessage);
-                $('#modalMessage').modal('show');
-            }
-        });
-    });
-
-    // Manejar evento de clic en el botón de eliminar persona
-    $('#personas').on('click', '.deleteButton', function () {
-        var id = $(this).data('id');
-        if (confirm('¿Estás seguro de que deseas eliminar esta persona?')) {
-            $.ajax({
-                url: '/api/personas/' + id,
-                type: 'DELETE',
-                success: function (response) {
-                    // Recargar el listado de personas después de la eliminación
-                    table.ajax.reload();
-                },
-                error: function (xhr, status, error) {
-                    // Manejar errores
-                    var errorMessage = xhr.responseJSON.message; // Suponiendo que la API REST devuelve un mensaje de error en formato JSON
-                    $('#modalMessageContent').text(errorMessage);
-                    $('#modalMessage').modal('show');
+            columns: [
+                { data: "id" },
+                { data: "nombres" },
+                { data: "apellidos" },
+                { data: "pais" },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return '<button class="editButton" data-id="' + data.id + '">Editar</button>' +
+                            '<button class="deleteButton" data-id="' + data.id + '">Eliminar</button>';
+                    }
                 }
-            });
-        }
-    });
-});
+            ],
+            dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>'
+        });
+    }
+}

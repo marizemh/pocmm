@@ -8,13 +8,13 @@ public interface PersonasService {
 
     List<Persona> findAll();
 
-    Persona findById(String id);
+    Persona findById(int id);
 
     Persona save(Persona persona);
 
-    Persona update(String id, Persona persona);
+    Persona update(int id, Persona persona);
 
-    void deleteById(String id);
+    void deleteById(int id);
 
     List<Persona> obtenerPersonas();
 

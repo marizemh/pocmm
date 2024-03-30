@@ -1,10 +1,10 @@
-/*
 package com.venturicg.poc.web.controller;
 
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,35 +23,35 @@ public class PersonasController {
     private final PersonasService personasService;
 
     @Autowired
-    public PersonaController(PersonasService personasService) {
+    public PersonasController(PersonasService personasService) {
         this.personasService = personasService;
     }
 
     @GetMapping
     public List<Persona> getAllPersonas() {
-        return personasService.getAllPersonas();
+        return personasService.findAll();
     }
 
     @GetMapping("/{id}")
     public Persona getPersonaById(@PathVariable int id) {
-        return personasService.getPersonaById(id);
+        return personasService.findById(id);
     }
 
     @PostMapping
-    public void createPersona(@RequestBody Persona persona) {
-        personasService.createPersona(persona);
+    public ResponseEntity<Persona> createPersona(@RequestBody Persona persona) {
+        Persona nuevaPersona = personasService.save(persona);
+        return new ResponseEntity<>(nuevaPersona, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public void updatePersona(@PathVariable int id, @RequestBody Persona persona) {
-        persona.setId(id);
-        personasService.updatePersona(persona);
+    public ResponseEntity<Persona> updatePersona(@PathVariable int id, @RequestBody Persona persona) {
+        Persona personaActualizada = personasService.update(id, persona);
+        return new ResponseEntity<>(personaActualizada, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePersona(@PathVariable int id) {
-        personasService.deletePersona(id);
+    public ResponseEntity<?> deletePersona(@PathVariable int id) {
+        personasService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
-*/

@@ -27,7 +27,7 @@ public class PersonaServiceImpl implements PersonasService {
     }
 
     @Override
-    public Persona findById(String id) {
+    public Persona findById(int id) {
         return personaDAO.findById(id);
     }
 
@@ -37,7 +37,7 @@ public class PersonaServiceImpl implements PersonasService {
     }
 
     @Override
-    public Persona update(String id, Persona persona) {
+    public Persona update(int id, Persona persona) {
         if (!personaDAO.existsById(id)) {
             throw new RuntimeException("Persona no encontrada");
         }
@@ -46,7 +46,7 @@ public class PersonaServiceImpl implements PersonasService {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(int id) {
         personaDAO.deleteById(id);
     }
 }
