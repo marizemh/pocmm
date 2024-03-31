@@ -7,5 +7,6 @@ CREATE TABLE persona (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(255) NOT NULL,
     apellidos VARCHAR(255) NOT NULL,
-    pais VARCHAR(255) NOT NULL
+    pais VARCHAR(255) NOT NULL,
+    FOREIGN KEY (pais) REFERENCES pais(id)
 );
