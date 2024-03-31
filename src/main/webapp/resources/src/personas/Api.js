@@ -1,5 +1,3 @@
-// Api.js
-
 import BaseApi from "../commons/BaseApi";
 
 export default class Api extends BaseApi {

@@ -1,5 +1,6 @@
-import $ from "jquery";
 import DataTable from 'datatables.net';
+import 'datatables.net-dt/css/jquery.dataTables.min.css';
+import $ from "jquery";
 
 export default class Personas {
     constructor(config) {
@@ -30,15 +31,5 @@ export default class Personas {
             ],
             dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>'
         });
-    }
-
-    obtenerYRenderizarPersonas() {
-        this.api.obtenerPersonas()
-            .then(personas => {
-                this.render(personas);
-            })
-            .catch(error => {
-                showError(error);
-            });
     }
 }

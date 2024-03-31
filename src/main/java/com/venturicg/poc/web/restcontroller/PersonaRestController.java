@@ -23,35 +23,36 @@ import com.venturicg.poc.web.dto.PersonaDTO;
 @RequestMapping("/rest/personas")
 public class PersonaRestController {
 
-  @Autowired
-  private PersonasService personasService;
+    @Autowired
+    private PersonasService personasService;
 
-  @GetMapping("")
-  public ResponseEntity<List<PersonaDTO>> obtenerPersonas() {
-    return new ResponseEntity<>(personasService.obtenerPersonas().stream()
-      .map(persona -> new PersonaDTO(persona.getId(), persona.getNombres(), persona.getApellidos(), persona.getPais()))
-      .collect(Collectors.toList()), HttpStatus.OK);
-  }
-
-  // Nuevos endpoints para crear, editar y eliminar personas
-  @PostMapping("")
-  public ResponseEntity<Persona> crearPersona(@RequestBody Persona persona) {
-    Persona nuevaPersona = personasService.save(persona);
-    return new ResponseEntity<>(nuevaPersona, HttpStatus.CREATED);
-  }
-
-  @PutMapping("/{id}")
-  public ResponseEntity<Persona> editarPersona(@PathVariable int id, @RequestBody Persona persona) {
-    if (id != persona.getId()) {
-      throw new IllegalArgumentException("ID de persona en la URL y en el body no coinciden");
+    @GetMapping("")
+    public ResponseEntity<List<PersonaDTO>> obtenerPersonas() {
+        return new ResponseEntity<>(personasService.obtenerPersonas().stream()
+                .map(persona -> new PersonaDTO(persona.getId(), persona.getNombres(), persona.getApellidos(),
+                        persona.getPais()))
+                .collect(Collectors.toList()), HttpStatus.OK);
     }
-    Persona personaActualizada = personasService.update(id, persona);
-    return new ResponseEntity<>(personaActualizada, HttpStatus.OK);
-  }
 
-  @DeleteMapping("/{id}")
-  public ResponseEntity<?> eliminarPersona(@PathVariable int id) {
-    personasService.deleteById(id);
-    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-  }
+    // Nuevos endpoints para crear, editar y eliminar personas
+    @PostMapping("")
+    public ResponseEntity<Persona> crearPersona(@RequestBody Persona persona) {
+        Persona nuevaPersona = personasService.save(persona);
+        return new ResponseEntity<>(nuevaPersona, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Persona> editarPersona(@PathVariable int id, @RequestBody Persona persona) {
+        if (id != persona.getId()) {
+            throw new IllegalArgumentException("ID de persona en la URL y en el body no coinciden");
+        }
+        Persona personaActualizada = personasService.update(id, persona);
+        return new ResponseEntity<>(personaActualizada, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarPersona(@PathVariable int id) {
+        personasService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

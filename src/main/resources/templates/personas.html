@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +9,16 @@
 </head>
 <body>
     <div class="container">
+        <!-- Modal para mensajes -->
+        <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessage" aria-hidden="true">
+            <!-- Contenido del modal -->
+        </div>
+
+        <!-- Modal para creación y edición de persona -->
+        <div class="modal fade" id="personaModal" tabindex="-1" role="dialog" aria-labelledby="personaModalLabel" aria-hidden="true">
+            <!-- Contenido del modal -->
+        </div>
+
         <div class="card">
             <h5 class="card-header">Personas</h5>
             <div class="card-body">
@@ -23,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Aquí se mostrarán las filas de personas utilizando DataTables -->
+                        <!-- Aquí se mostrarán las filas de personas utilizando Datatables -->
                     </tbody>
                 </table>
             </div>
