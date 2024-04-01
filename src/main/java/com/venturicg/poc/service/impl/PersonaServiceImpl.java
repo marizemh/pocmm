@@ -1,5 +1,6 @@
 package com.venturicg.poc.service.impl;
 
+
 import com.venturicg.poc.repository.PersonaDAO;
 import com.venturicg.poc.service.PersonasService;
 import com.venturicg.poc.service.model.Persona;
@@ -13,7 +14,6 @@ public class PersonaServiceImpl implements PersonasService {
 
     @Autowired
     private PersonaDAO personaDAO;
-
 
     @Override
     public List<Persona> obtenerPersonas() {
